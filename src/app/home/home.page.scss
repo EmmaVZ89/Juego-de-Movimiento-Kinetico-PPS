@@ -1,15 +1,15 @@
 // MENU PRINCIPAL
 ion-content {
-  --background: rgb(246, 154, 4);
+  --background: rgb(0, 0, 0);
   --background: linear-gradient(
-    15deg,
-    rgba(246, 154, 4, 1) 48%,
-    rgba(246, 219, 4, 1) 100%
+    242deg,
+    rgba(0, 0, 0, 1) 63%,
+    rgba(246, 4, 4, 1) 64%
   );
   overflow: hidden;
   position: relative;
   .cosas-lindas-btn {
-    background: url("../../assets/edificio-lindo.jpg");
+    background: url("../../assets/dc.jpg");
     background-size: cover;
     background-position: center;
     border-radius: 15px;
@@ -18,37 +18,20 @@ ion-content {
     margin-bottom: 10px;
     height: 40vh;
     box-shadow: 10px 10px 10px #000;
-    h2 {
-      font-size: 1.8rem;
-      font-weight: bolder;
-      line-height: 14rem;
-      background: rgba(255, 0, 0, 0.212);
-      border-radius: 15px;
-      text-shadow: 2px 2px 4px #000;
-    }
   }
   .cosas-lindas-btn:active {
     transform: scale(0.9);
     transition: transform 0.3s;
   }
   .cosas-feas-btn {
-    background: url("../../assets/edificio-feo.jpg");
+    background: url("../../assets/marvel.jpg");
     background-size: cover;
     background-position: center;
     border-radius: 15px;
     border: 3px solid rgb(255, 255, 255);
     text-align: center;
-    box-shadow: 2px 2px 3px #000;
     height: 40vh;
     box-shadow: 10px 10px 10px #000;
-    h2 {
-      font-size: 1.8rem;
-      font-weight: bolder;
-      line-height: 14rem;
-      background: rgba(255, 0, 0, 0.212);
-      border-radius: 15px;
-      text-shadow: 2px 2px 4px #000;
-    }
   }
   .cosas-feas-btn:active {
     transform: scale(0.9);
@@ -77,15 +60,6 @@ ion-menu::part(container) {
   box-shadow: 4px 0px 16px rgba(255, 0, 255, 0.18);
 }
 
-ion-spinner {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 15rem;
-  height: 15rem;
-}
-
 // MENU COSAS LINDAS Y FEAS
 .btns-cosas-lindas {
   width: 15rem;
@@ -93,6 +67,7 @@ ion-spinner {
   margin-left: auto;
   margin-right: auto;
   box-shadow: 10px 10px 10px #000;
+  background: rgb(11, 119, 168);
   color: #fff;
   text-align: center;
   border: 2px solid #fff;
@@ -112,95 +87,91 @@ ion-spinner {
   background: rgb(168, 28, 28);
 }
 
-.mis-fotos,
-.grafico {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-  color: #000;
-  font-weight: bold;
-  text-align: center;
-  background: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-.mis-fotos:active,
-.grafico:active {
-  transform: scale(0.9);
-  transition: transform 0.3s;
-}
-.grafico {
-  width: 13rem;
-  background: black;
-  color: #fff;
-  border: 3px solid #444;
-}
-
-.btn-tomar-foto {
-  display: block;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-  height: 18rem;
-  background: url("../../assets/camara-mod.png");
-  background-size: cover;
+// SLIDES
+.img-slide {
+  width: 100%;
+  height: 85vh;
+  background: rgba(37, 77, 255, 0.25);
+  background: url("../../assets/dc.jpg");
   background-position: center;
-  border-radius: 15px;
-  border: 3px solid rgb(255, 255, 255);
-  text-align: center;
-  box-shadow: 10px 10px 10px #000;
-  h2 {
-    font-size: 1.8rem;
-    font-weight: bolder;
-    line-height: 16rem;
-    background: rgba(95, 1, 1, 0.25);
-    border-radius: 15px;
-    text-shadow: 3px 3px 8px #000;
-  }
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
 }
-.btn-tomar-foto:active {
+.img-slide:active {
   transform: scale(0.9);
   transition: transform 0.3s;
 }
 
-// LISTADO COSAS LINDAS y FEAS
-.img-cosas-lindas {
-  width: 100%;
-  height: 12rem;
-  object-fit: cover;
+// VISTAS
+.img-animal-vert {
+  width: 10rem;
+  height: 10rem;
+  border: 5px double #fff;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px #000;
 }
-.img-cosas-lindas-usuario {
-  width: 100%;
-  height: 18rem;
-  object-fit: cover;
+.img-animal-vert:active {
+  transform: scale(0.9);
+  box-shadow: 0 0 16px rgb(240, 0, 0);
+  transition: transform 0.3s;
 }
 
-.btn-like-dislike-cl {
-  --background: rgb(160, 221, 198);
-  ion-icon {
-    width: 3rem;
-    height: 3rem;
-    margin-left: 40%;
+.img-animal-hor {
+  border: 5px double #fff;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  box-shadow: 3px 3px 3px #000;
+  border-radius: 10px;
+}
+.img-animal-hor:active {
+  transform: scale(0.9);
+  box-shadow: 0 0 16px rgb(240, 0, 0);
+  transition: transform 0.3s;
+}
+
+.grid-vertical-animales {
+  height: 89%;
+  display: flex;
+  flex-flow: column;
+}
+
+// JUEGO
+
+.img-juego {
+  width: 10rem;
+  height: 10rem;
+  border: 2px solid #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  object-fit: contain;
+  box-shadow: 0 0 20px #fff;
+  animation-name: img-character;
+  animation-duration: 2s;
+  animation-delay: 0.1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+
+
+//
+@keyframes img-character {
+  0% {
+    background-color: rgba(78, 184, 255, 0.5);
   }
-}
-
-.like-activado {
-  color: rgb(1, 143, 1);
-}
-
-// PIPE Y BAR CHART
-
-.pipe-chart-container,
-.bar-chart-container {
-  display: inline-block;
-  position: relative;
-  width: 100%;
-  height: 50vh !important;
-  margin: auto;
-  margin-top: 2rem;
+  50% {
+    background-color: rgba(247, 73, 73, 0.801);
+  }
+  100% {
+    background-color: rgba(78, 184, 255, 0.5);
+  }
 }

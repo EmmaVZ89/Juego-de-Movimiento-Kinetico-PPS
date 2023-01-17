@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
-import { IonRouterOutlet, Platform } from '@ionic/angular';
-import { App } from '@capacitor/app';
-import { AlertController } from '@ionic/angular';
-import { User } from '../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -15,15 +10,11 @@ import { User } from '../../models/user';
 export class LoginPage implements OnInit {
   email = '';
   password = '';
+  admin: boolean = false;
+  usuario: boolean = false;
+  invitado: boolean = false;
 
-  constructor(
-    private auth: AuthService,
-    private toastController: ToastController,
-    private router: Router,
-    private platform: Platform,
-    private routerOutlet: IonRouterOutlet,
-    private alertController: AlertController
-  ) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit() {
     this.auth.getUserLogged().subscribe((res) => {
@@ -34,15 +25,6 @@ export class LoginPage implements OnInit {
   }
 
   loginUser() {
-    // let newUser: User = {
-    //   userId: '5',
-    //   userName: 'Tester',
-    //   userEmail: 'tester@tester.com',
-    //   userPassword: '555555',
-    //   userRol: 'tester',
-    //   userSex: 'femenino',
-    // };
-    // this.auth.registerNewUser(newUser);
     if (this.email && this.password) {
       this.auth.signIn(this.email, this.password);
     } else {
@@ -51,30 +33,48 @@ export class LoginPage implements OnInit {
   } // end of loginUser
 
   loadFastUser(numUser: number) {
+    const admin = <HTMLInputElement>document.getElementById('admin');
+    const usuario = <HTMLInputElement>document.getElementById('usuario');
+    const invitado = <HTMLInputElement>document.getElementById('invitado');
     switch (numUser) {
       case 1:
+        usuario.checked = false;
+        invitado.checked = false;
         this.email = 'admin@admin.com';
         this.password = '111111';
         this.auth.toast(
           '¡Usuario cargado, ahora puedes Iniciar Sesión!',
-          'dark'
+          'secondary'
         );
+        this.admin = true;
+        this.usuario = false;
+        this.invitado = false;
         break;
       case 2:
+        usuario.checked = false;
+        admin.checked = false;
         this.email = 'invitado@invitado.com';
         this.password = '222222';
         this.auth.toast(
           '¡Usuario cargado, ahora puedes Iniciar Sesión!',
-          'dark'
+          'secondary'
         );
+        this.admin = false;
+        this.usuario = false;
+        this.invitado = true;
         break;
       case 3:
+        admin.checked = false;
+        invitado.checked = false;
         this.email = 'usuario@usuario.com';
         this.password = '333333';
         this.auth.toast(
           '¡Usuario cargado, ahora puedes Iniciar Sesión!',
-          'dark'
+          'secondary'
         );
+        this.admin = false;
+        this.usuario = true;
+        this.invitado = false;
         break;
       default:
         break;

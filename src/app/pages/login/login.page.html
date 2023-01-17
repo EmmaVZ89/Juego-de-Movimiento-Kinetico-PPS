@@ -1,64 +1,88 @@
 <ion-header>
   <ion-title style="text-align: center; background: #fff; color: #000"
-    >Visualizador Kinético</ion-title
+    >Juego de Movimiento Kinético</ion-title
   >
 </ion-header>
 
 <ion-content no-scroll>
-  <div class="container">
-    <img src="../../../assets/visualizadorKinetico.png" class="logo" />
-    <div class="noFoto">
-      <form (ngSubmit)="loginUser()" #f="ngForm">
-        <ion-item class="items" >
-          <ion-label position="floating" style="color: black"
-            >Dirección de Correo</ion-label
-          >
-          <ion-input
-            style="color: #000"
-            type="email"
-            name="email"
-            [(ngModel)]="email"
-            required
-          ></ion-input>
-        </ion-item>
+  <div class="container-fluid mx-auto contenedor-gral">
+    <div class="contenedor-logo">
+      <img
+        style="
+          width: 11rem;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 1rem;
+        "
+        src="../../../assets/juegokinetico.png"
+        alt="logo"
+      />
+    </div>
+    <div class="row" style="color: #fff; margin-top: 2rem; margin-bottom: 2rem">
+      <label class="mb-1"
+        ><h6 class="mb-0 text-sm">Dirección de Correo</h6></label
+      >
+      <input
+        [(ngModel)]="email"
+        placeholder="Dirección de Correo"
+        class="input"
+        name="email"
+        type="email"
+      />
+    </div>
+    <div class="row" style="color: #fff">
+      <label><h6 class="text-sm">Contraseña</h6></label>
+      <input
+        [(ngModel)]="password"
+        placeholder="Contraseña"
+        class="input"
+        name="email"
+        type="password"
+      />
+    </div>
+    <div class="row mb-3 px-3" style="color: #fff; margin-top: 1rem">
+      <button
+        type="submit"
+        class="btn btn-ingresar text-center"
+        (click)="loginUser()"
+      >
+        Ingresar
+      </button>
+    </div>
 
-        <ion-item class="items">
-          <ion-label position="floating">
-            <ion-text color="light">Contraseña</ion-text>
-          </ion-label>
-          <ion-input
-            color="light"
-            [(ngModel)]="password"
-            name="clave"
-            type="password"
-            required
-          ></ion-input>
-        </ion-item>
-
-        <ion-button class="botones" expand="block" type="submit">
-          <ion-text> Iniciar sesión </ion-text>
-        </ion-button>
-      </form>
-
-      <div class="containerButtons">
-        <ion-grid fixed >
-          <ion-row>
-            <ion-col size="4">
-              <button class="ionButton" (click)="loadFastUser(1)">Admin</button>
-            </ion-col>
-            <ion-col size="4">
-              <button class="ionButton" (click)="loadFastUser(3)">
-                Usuario
-              </button>
-            </ion-col>
-            <ion-col size="4">
-              <button class="ionButton" (click)="loadFastUser(2)">
-                Invitado
-              </button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
+    <h6 class="mb-3 mr-4 mt-3 text-center" style="color: #fff">
+      Ingreso rápido
+    </h6>
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        color: #fff;
+      "
+    >
+      <div style="display: flex; justify-content: center">
+        <label class="switch">
+          <input type="checkbox" id="admin" (click)="loadFastUser(1)" />
+          <span class="slider"></span>
+        </label>
+        <p style="margin-right: 5px; margin-left: 5px">Admin</p>
+      </div>
+      <div style="display: flex; justify-content: center">
+        <label class="switch">
+          <input type="checkbox" id="usuario" (click)="loadFastUser(3)" />
+          <span class="slider"></span>
+        </label>
+        <p style="margin-right: 5px; margin-left: 5px">Usuario</p>
+      </div>
+      <div style="display: flex; justify-content: center">
+        <label class="switch">
+          <input type="checkbox" id="invitado" (click)="loadFastUser(2)" />
+          <span class="slider"></span>
+        </label>
+        <p style="margin-right: 5px; margin-left: 5px">Invitado</p>
       </div>
     </div>
-  </div>
-</ion-content>
+  </div></ion-content
+>

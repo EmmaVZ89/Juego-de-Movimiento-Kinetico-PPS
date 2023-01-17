@@ -1,75 +1,232 @@
 ion-content {
-  --background: rgb(246, 154, 4);
+  --background: rgb(0, 0, 0);
   --background: linear-gradient(
-    15deg,
-    rgba(246, 154, 4, 1) 48%,
-    rgba(246, 219, 4, 1) 100%
+    242deg,
+    rgba(0, 0, 0, 1) 63%,
+    rgba(246, 4, 4, 1) 64%
   );
   overflow: hidden;
 }
 
-.container {
-  margin-top: 2rem;
+.contenedor-gral {
+  min-height: 100vh;
+  font-family: fantasy;
+  font-weight: lighter;
+  text-shadow: 2px 2px 4px #000;
 }
 
-.noFoto {
-  margin-top: 1rem;
+.contenedor-usuarios {
+  display: flex;
+  justify-content: space-around;
 }
 
-.logo {
-  width: 11rem;
-  margin-left: auto;
-  margin-right: auto;
+.usuarios-rapidos {
+  display: flex;
+  flex-direction: column;
+  p {
+    text-align: center;
+  }
+  img {
+    width: 5rem;
+    border-radius: 50%;
+    border: 2px dashed #000;
+  }
+}
+
+.seleccionado {
+  box-shadow: 0 0 24px #c9330e;
+}
+
+.usuarios-rapidos:hover {
+  cursor: pointer;
+}
+
+.usuarios-rapidos > img:active {
+  transform: scale(1.2);
+  transition: transform 0.3s;
+}
+
+.border-line {
+  border-right: 1px solid #eeeeee;
+}
+
+.line {
+  height: 3px;
+  width: 95%;
+  background-color: #e0e0e0;
+  margin-top: 10px;
   display: block;
-  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 2px 4px #000;
 }
 
-.botones {
-  --background: #f00;
+.text-sm {
+  text-align: center;
+  margin-top: 0;
+}
+
+::placeholder {
+  color: #9b9494;
+  opacity: 1;
+  font-weight: 300;
+}
+
+:-ms-input-placeholder {
+  color: #9b9494;
+  font-weight: 300;
+}
+
+::-ms-input-placeholder {
+  color: #9b9494;
+  font-weight: 300;
+}
+
+input,
+textarea {
+  padding: 10px 12px 10px 12px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 5px;
+  margin-bottom: 5px;
+  margin-top: 2px;
+  width: 80%;
+  box-sizing: border-box;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 1px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: rgb(255, 255, 255);
+}
+
+input:focus,
+textarea:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  border: 2px solid #ffffff;
+  outline-width: 0;
+}
+
+button:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline-width: 0;
+}
+
+.btn-ingresar {
+  background-color: #ffffff;
+  width: 70%;
+  height: 4rem;
+  color: rgb(0, 0, 0);
+  border-radius: 10px;
+  display: block;
+  margin: 1rem auto 1rem auto;
+  box-shadow: 2px 2px 4px rgb(255, 255, 255);
+  border: 2px solid rgb(0, 0, 0);
+}
+
+.btn-ingresar:hover {
+  background-color: rgb(121, 255, 199);
+  cursor: pointer;
+}
+
+// ***************************************************************************
+// ***************************************************************************
+// ***************************************************************************
+// ***************************************************************************
+
+/* From uiverse.io by @Jay-9527 */
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 2.8em;
+  height: 1.7em;
+ }
+ 
+ /* Hide default HTML checkbox */
+ .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+ }
+ 
+ /* The slider */
+ .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 30px;
+ }
+ 
+ .slider:before {
+  position: absolute;
+  content: "";
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 20px;
+  left: 0.2em;
+  bottom: 0.2em;
+  background-color: white;
+  transition: .4s;
+ }
+ 
+ input:checked + .slider {
+  background-color: rgb(0, 132, 255);
+ }
+ 
+ input:focus + .slider {
+  box-shadow: 0 0 1px rgb(0, 132, 255);
+ }
+ 
+ input:checked + .slider:before {
+  transform: translateX(1.5em);
+ }
+
+
+// ***************************
+// ***************************
+// ***************************
+// ***************************
+// ***************************
+
+ /* From uiverse.io by @Cornerstone-04 */
+.input {
+  width: 80%;
+  height: 4rem;
+  border: 2px solid transparent;
+  outline: none;
+  border-bottom: 2px solid #3f3f3f;
+  caret-color: #69faff;
+  background-color: #212121;
+  padding: 5px;
+  transition: .5s linear;
+  font-family: monospace;
+  letter-spacing: 1px;
   color: #fff;
-  width: 80%;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 3rem;
-  border: 3px groove #fff;
-  border-radius: 10px;
-  box-shadow: 10px 10px 10px #000;
+  box-shadow: 2px 2px 4px #fff
 }
 
-.items {
-  margin-bottom: 10%;
-  --background: #f2f4f8;
-  width: 80%;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 3rem;
-  box-shadow: 10px 10px 10px #000;
+.input:focus {
+  border: 2px solid #09d3f7;
+  caret-color: #fa4753;
+  color: #47eefa;
+  box-shadow: 4px 4px 10px #070707;
 }
 
-.ionButton {
-  margin-top: 3rem;
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  background: #000;
-  border: 3px groove rgb(255, 255, 255);
-  color: rgb(255, 248, 248);
-  text-shadow: 1px 1px #000;
-  border-radius: 10px;
-  box-shadow: 2px 2px rgb(0, 0, 0);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  box-shadow: 10px 10px 10px #000;
+.input::placeholder{
+  color: #fff;
 }
 
-.ionButton:hover {
-    background: #fff;
-    color: #000;
-    cursor: pointer;
-}
-
-.containerButtons{
-  margin-bottom: 2rem;
+.input:focus::placeholder {
+  color: #47e5fa;
 }

@@ -11,8 +11,7 @@ import {
 } from '@ionic-native/device-motion/ngx';
 
 import { LoadingController } from '@ionic/angular';
-
-import { Platform } from '@ionic/angular';
+import { GameService } from '../services/game.service';
 
 @Component({
   selector: 'app-home',
@@ -26,9 +25,23 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
   user: any = null;
   menu: number = 0;
 
+  currentCharacter: string;
   imageCharacter: any;
-  imageCoordinates: any;
   pathImageCharacter: string = '';
+
+  imageWidth: any;
+  imageHeight: any;
+  screenWidth: any;
+  screenHeight: any;
+  left: any;
+  top: any;
+  scale: number = 0.1;
+  gameStarted: boolean = false;
+  gameOver: boolean = false;
+  velocity: number = 0;
+  score: number = 0;
+  idInterval: any;
+  timePassed: number = 0;
 
   loading: any;
 
@@ -36,7 +49,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     private authService: AuthService,
     private deviceMotion: DeviceMotion,
     private loadingController: LoadingController,
-    private platform: Platform
+    private gameService: GameService
   ) {} // end of constructor
 
   ngOnInit(): void {
@@ -63,15 +76,9 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
     this.watch.unsubscribe();
   }
 
-  imageWidth: any;
-  imageHeight: any;
-  screenWidth: any;
-  screenHeight: any;
-  left: any;
-  top: any;
-  scale: number = 0.5;
   handleAcceleration(acceleration: DeviceMotionAccelerationData) {
-    if (this.imageCharacter != undefined) {
+    if (this.imageCharacter != undefined && this.gameStarted) {
+      this.velocity += 0.0007;
       this.imageWidth = this.imageCharacter.offsetWidth;
       this.imageHeight = this.imageCharacter.offsetHeight;
       this.screenWidth = window.innerWidth;
@@ -83,10 +90,30 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
         this.left < 0 + this.imageWidth / 2
       ) {
         //Si llega al borde izquierdo o derecho
-        console.log('image reached left or right bounds');
+        this.gameStarted = false;
+        this.gameOver = true;
+        clearInterval(this.idInterval);
+        const game: any = {
+          userUid: this.user.userUid,
+          userName: this.user.userName,
+          characterImage: this.pathImageCharacter,
+          score: this.score,
+          time: this.getTime(),
+        };
+        this.gameService.createGame(game);
+        // console.log('image reached left or right bounds');
       } else {
-        this.imageCharacter.style.left =
-          this.left + acceleration.x * this.scale + 'px';
+        if (acceleration.x < 0) {
+          this.imageCharacter.style.left =
+            this.left +
+            -1 * (acceleration.x * this.scale + -1 * this.velocity) +
+            'px';
+        } else {
+          this.imageCharacter.style.left =
+            this.left +
+            -1 * (acceleration.x * this.scale + this.velocity) +
+            'px';
+        }
       }
 
       if (
@@ -95,10 +122,26 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
         this.top < 0 + this.imageHeight / 2
       ) {
         //Si llega al borde arriba o abajo
-        console.log('image reached top or bottom bounds');
+        this.gameStarted = false;
+        this.gameOver = true;
+        clearInterval(this.idInterval);
+        const game: any = {
+          userUid: this.user.userUid,
+          userName: this.user.userName,
+          characterImage: this.pathImageCharacter,
+          score: this.score,
+          time: this.getTime(),
+        };
+        this.gameService.createGame(game);
+        // console.log('image reached top or bottom bounds');
       } else {
-        this.imageCharacter.style.top =
-          this.top + acceleration.y * this.scale + 'px';
+        if (acceleration.y < 0) {
+          this.imageCharacter.style.top =
+            this.top + acceleration.y * this.scale + -1 * this.velocity + 'px';
+        } else {
+          this.imageCharacter.style.top =
+            this.top + acceleration.y * this.scale + this.velocity + 'px';
+        }
       }
     }
   }
@@ -114,50 +157,42 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       this.menu = view;
       if (view == 0) {
         this.imageCharacter = undefined;
+        this.gameStarted = false;
       }
       this.loading.dismiss();
     }, 1000);
   }
 
-  contador = 10;
   async chooseCharacter(character: string) {
+    this.currentCharacter = character;
     this.pathImageCharacter = `../../assets/${character}.png`;
     this.chooseMenu(3);
     setTimeout(() => {
+      this.gameStarted = true;
+      this.gameOver = false;
+      this.timePassed = 0;
+      this.score = 0;
+      this.velocity = 0;
       this.imageCharacter = document.getElementById('img-juego');
-      // this.imageCoordinates = this.imageCharacter.getBoundingClientRect();
-      // setInterval(() => {
-      //   this.imageWidth = this.imageCharacter.offsetWidth;
-      //   this.imageHeight = this.imageCharacter.offsetHeight;
-      //   this.screenWidth = window.innerWidth;
-      //   this.screenHeight = window.innerHeight;
-      //   this.left = this.imageCharacter.offsetLeft;
-      //   this.top = this.imageCharacter.offsetTop;
-      //   console.log('Left: ', this.left);
-      //   console.log('Top: ', this.top);
-      //   if (
-      //     this.left + this.imageWidth >
-      //       this.screenWidth + this.imageWidth / 2 ||
-      //     this.left < 0 + this.imageWidth / 2
-      //   ) {
-      //     //Si llega al borde izquierdo o derecho
-      //     console.log('image reached left or right bounds');
-      //   } else {
-      //     this.imageCharacter.style.left = this.left + this.contador + 'px';
-      //   }
-
-      //   if (
-      //     this.top + this.imageHeight >
-      //       this.screenHeight + this.imageHeight / 2 ||
-      //     this.top < 0 + this.imageHeight / 2
-      //   ) {
-      //     //Si llega al borde arriba o abajo
-      //     console.log('image reached top or bottom bounds');
-      //   } else {
-      //     this.imageCharacter.style.top = this.top + this.contador + 'px';
-      //   }
-      // }, 500);
+      this.idInterval = setInterval(() => {
+        this.score += 10;
+        this.timePassed++;
+      }, 1000);
     }, 1250);
+  }
+
+  getTime() {
+    let minutes: string | number = Math.floor(this.timePassed / 60);
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+    let seconds = this.timePassed % 60;
+    return minutes + "'" + ':' + (seconds < 10 ? '0' : '') + seconds + "''";
+  }
+
+  resetGame() {
+    this.menu = -1;
+    this.imageCharacter = undefined;
+    this.gameStarted = false;
+    this.chooseCharacter(this.currentCharacter);
   }
 
   convertDateToUnix(photo: any) {

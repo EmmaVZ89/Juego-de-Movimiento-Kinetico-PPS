@@ -38,7 +38,7 @@ Guardar los puntos logrados por cada jugador en la BD.</li>
  <hr>
  <h2 align="center">SPLASH SCREEN</h2>
  <p align="center">
-   <img width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/1-splash.gif">
+   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/1-splash.gif">
  </p>
  <hr>
  
@@ -46,51 +46,44 @@ Guardar los puntos logrados por cada jugador en la BD.</li>
  <h2 align="center">INICIO RÁPIDO</h2>
  <p align="center">Se pueden seleccionar 3 diferentes tipo de usuarios para probar la aplicación</p>
  <p align="center">
-   <img width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/2-inicio.gif">
- </p>
- <hr>
- 
- <hr>
- <h2 align="center">GALERÍAS DE IMÁGENES</h2>
- <p align="center">Las galerias de imágenes responden al movimiento del dispositivo para cambiar la foto.</p>
- <p align="center">
-   <img width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/3-galeria-cl.gif">
-   <img width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/6-geleria-usuario.gif">
- </p>
- <hr>
- 
- <hr>
- <h2 align="center">MENU LATERAL</h2>
- <p align="center">
-   <img width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/4-menu.gif">
- </p>
- <hr>
- 
- <hr>
- <h2 align="center">VOTO</h2>
- <p align="center">Se puede dar o quitar el voto a una imágen.</p>
- <p align="center">
-   <img width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/5-voto.gif">
- </p>
- <hr>
- 
- <hr>
- <h2 align="center">SUBIR FOTO</h2>
- <p align="center">Es posible subir una foto con la cámara del dispositivo.</p>
- <p align="center">
-   <img width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/7-subir-foto.gif">
+   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/2-inicio.gif">
  </p>
  <hr>
   
+  <hr>
+ <h2 align="center">MENU LATERAL</h2>
+ <p align="center">
+   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/3-menu.gif">
+ </p>
+ <hr>
+ 
+ <hr>
+ <h2 align="center">PERSONAJES DC</h2>
+ <p align="center">
+   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/4-dc.gif">
+   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/5-juego-dc.gif">
+ </p>
+ <hr>
+ 
+  <hr>
+ <h2 align="center">PERSONAJES MARVEL</h2>
+ <p align="center">
+   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/6-marvel.gif">
+   <img width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/7-juego-marvel.gif">
+ </p>
+ <hr>
+
+ 
  <hr>
  <h2 align="center">VISTAS</h2>
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/8%20login.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/9%20principal.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/10%20menu.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/11%20galeria%20usuario.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/13%20galeria%20cf.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/14%20galeria%20usuario%20cf.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/12%20chart.png">
- <img align="left" width=200 src="https://github.com/EmmaVZ89/Visualizador-Kinetico-PPS/blob/main/readme/15%20chart%20cf.png">
-
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/8%20inicio.png">
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/9%20principal.png">
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/10%20menu%20tabla.png">
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/11%20dc.png">
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/12%20juego%20dc.png">
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/13%20game%20over%20dc.png">
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/14%20marvel.png">
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/15%20juego%20marvel.png">
+ <img align="left" width=200 src="https://github.com/EmmaVZ89/Juego-de-Movimiento-Kinetico-PPS/blob/main/readme/16%20game%20over%20marvel.png">
+ 
  

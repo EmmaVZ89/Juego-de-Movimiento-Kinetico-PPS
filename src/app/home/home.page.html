@@ -6,8 +6,51 @@
         <ion-title>Menu</ion-title>
       </ion-toolbar>
     </ion-header>
-    <ion-content class="ion-padding" style="--background: rgb(255, 255, 255)"
-      ><ion-grid style="display: flex; flex-flow: column">
+    <ion-content class="ion-padding" style="--background: rgb(255, 255, 255)">
+      <h4 style="color: #000; text-align: center; font-weight: bolder">
+        PUNTUACIONES
+      </h4>
+      <ion-grid
+        style="
+          color: #fff;
+          text-shadow: 1px 1px 1px #000;
+          margin-bottom: 2rem;
+          background: rgb(236, 86, 86);
+          border: 2px solid #fff;
+          border-radius: 10px;
+          box-shadow: 10px 10px 10px #000;
+        "
+      >
+        <ion-row style="border-bottom: 2px solid #fff;">
+          <ion-col> </ion-col>
+          <ion-col> <b>Usuario</b> </ion-col>
+          <ion-col> <b>Puntos</b> </ion-col>
+          <ion-col> <b>Tiempo</b> </ion-col>
+        </ion-row>
+        <ion-row
+          *ngFor="let score of gameScoresList"
+          [ngClass]="user.userUid == score.userUid?'puntos-usuario':''"
+        >
+          <ion-col
+            ><ion-img
+              style="
+                width: 2rem;
+                height: 2rem;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 2px solid #000;
+                box-shadow: 2px 2px 2px #000;
+                background: #fff;
+              "
+              src="{{score.characterImage}}"
+            ></ion-img
+          ></ion-col>
+          <ion-col>{{score.userName}}</ion-col>
+          <ion-col>{{score.score}}</ion-col>
+          <ion-col>{{score.time}}</ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid style="display: flex; flex-flow: column">
         <ion-row style="flex-grow: 1">
           <ion-col>
             <button class="btn btns-cosas-lindas" (click)="chooseMenu(0)">
@@ -22,8 +65,8 @@
             </button>
           </ion-col>
         </ion-row>
-      </ion-grid></ion-content
-    >
+      </ion-grid>
+    </ion-content>
   </ion-menu>
   <div class="ion-page" id="main-content">
     <ion-header>
@@ -59,49 +102,97 @@
     </ion-grid>
   </div>
 
-  <!-- IMÁGENES DC O MARVEL -->
+  <!-- IMÁGENES DC-->
   <div *ngIf="menu == 1">
     <ion-slides #slides pager="true" style="margin-top: 4rem">
       <ion-slide>
         <img
-          class="img-slide"
+          class="img-slide dc"
           src="../../assets/batman.png"
           (click)="chooseCharacter('batman')"
         />
       </ion-slide>
       <ion-slide>
         <img
-          class="img-slide"
+          class="img-slide dc"
           src="../../assets/superman.png"
           (click)="chooseCharacter('superman')"
         />
       </ion-slide>
       <ion-slide>
         <img
-          class="img-slide"
+          class="img-slide dc"
           src="../../assets/ww.png"
           (click)="chooseCharacter('ww')"
         />
       </ion-slide>
       <ion-slide>
         <img
-          class="img-slide"
+          class="img-slide dc"
           src="../../assets/flash.png"
           (click)="chooseCharacter('flash')"
         />
       </ion-slide>
       <ion-slide>
         <img
-          class="img-slide"
+          class="img-slide dc"
           src="../../assets/guason.png"
           (click)="chooseCharacter('guason')"
         />
       </ion-slide>
       <ion-slide>
         <img
-          class="img-slide"
+          class="img-slide dc"
           src="../../assets/aquaman.png"
           (click)="chooseCharacter('aquaman')"
+        />
+      </ion-slide>
+    </ion-slides>
+  </div>
+
+  <!-- IMÁGENES MARVEL -->
+  <div *ngIf="menu == 2">
+    <ion-slides #slides pager="true" style="margin-top: 4rem">
+      <ion-slide>
+        <img
+          class="img-slide marvel"
+          src="../../assets/spiderman.png"
+          (click)="chooseCharacter('spiderman')"
+        />
+      </ion-slide>
+      <ion-slide>
+        <img
+          class="img-slide marvel"
+          src="../../assets/ironman.png"
+          (click)="chooseCharacter('ironman')"
+        />
+      </ion-slide>
+      <ion-slide>
+        <img
+          class="img-slide marvel"
+          src="../../assets/be.png"
+          (click)="chooseCharacter('be')"
+        />
+      </ion-slide>
+      <ion-slide>
+        <img
+          class="img-slide marvel"
+          src="../../assets/ca.png"
+          (click)="chooseCharacter('ca')"
+        />
+      </ion-slide>
+      <ion-slide>
+        <img
+          class="img-slide marvel"
+          src="../../assets/thor.png"
+          (click)="chooseCharacter('thor')"
+        />
+      </ion-slide>
+      <ion-slide>
+        <img
+          class="img-slide marvel"
+          src="../../assets/hulk.png"
+          (click)="chooseCharacter('hulk')"
         />
       </ion-slide>
     </ion-slides>

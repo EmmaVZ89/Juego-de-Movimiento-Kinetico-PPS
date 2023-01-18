@@ -12,7 +12,9 @@ export class GameService {
   }
 
   getGames() {
-    const collection = this.angularFirestore.collection<any>('juegos');
+    const collection = this.angularFirestore.collection<any>('juegos', (ref) =>
+      ref.orderBy('score', 'desc').limit(5)
+    );
     return collection.valueChanges();
   }
 }

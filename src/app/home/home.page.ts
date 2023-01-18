@@ -43,6 +43,8 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
   idInterval: any;
   timePassed: number = 0;
 
+  gameScoresList: any[] = [];
+
   loading: any;
 
   constructor(
@@ -58,6 +60,10 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
       this.loading.dismiss();
       if (user) {
         this.user = user;
+        this.gameService.getGames().subscribe((gameScores)=>{
+          this.gameScoresList = gameScores;
+          console.log(this.gameScoresList);
+        })
       } else {
         // this.router.navigate(['/login']);
       }
@@ -78,7 +84,7 @@ export class HomePage implements OnInit, AfterViewInit, OnDestroy {
 
   handleAcceleration(acceleration: DeviceMotionAccelerationData) {
     if (this.imageCharacter != undefined && this.gameStarted) {
-      this.velocity += 0.0007;
+      this.velocity += 0.0006;
       this.imageWidth = this.imageCharacter.offsetWidth;
       this.imageHeight = this.imageCharacter.offsetHeight;
       this.screenWidth = window.innerWidth;
